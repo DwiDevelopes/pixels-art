@@ -1,0 +1,149 @@
+body {
+    /*background-color: #f1f1f1;*/
+    background-image: url("images/bg.jpg");
+    font-family: cursive;
+}
+
+header h1 {
+    font-size: 5rem;
+    text-shadow: 3px 3px #000;
+}
+
+p{
+    background-color: #ffffff;
+    font-family: Cambria, "Cambria Math", stixgeneral, "Times New Roman", Times, serif;
+    font-size: 19px;
+}
+
+
+header h4 {
+    font-size: 1.3rem;
+    text-shadow: 1px 1px #000;
+}
+
+header .btn-lg {
+    font-size: 1rem;
+    margin: 0 15px;
+    background-color: crimson;
+}
+
+header .btn-lg:hover {
+    background-color: darkred;
+}
+
+header .btn-lg:focus {
+    background-color: darkred;
+}
+
+h2 {
+    margin: 10px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+h3 {
+    margin: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: transparent;
+}
+
+p {
+    padding-left: 15px;
+    background-color: transparent;
+}
+
+#selection-box {
+    padding: 20px;
+    text-align: center;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    width: 80%;
+    height: 160px;
+    line-height: 160px;
+    display: inline-block;
+    background-color: #f5f8fa;
+    border-color: rgb(145, 145, 125);
+    border-radius: 6px;
+    border-style: dashed;
+    border-width: 3px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: normal;
+}
+
+.custom_form {
+    background-color: #ffffff;
+    margin: auto;
+    max-width: 80%;
+    text-align: left;
+}
+
+#download_btn {
+    font-size: 1.05rem;
+    font-weight: bold;
+    background-color: #fafafa;
+}
+
+#img1 {
+    max-width: 100%;
+    max-height: 1000px;
+    margin: 5px;
+    border-radius: 20px;
+}
+
+#gallery-box {
+    background-color: #333333;
+    padding: 20px;
+    text-align: center;
+}
+
+#gallery-box h2 {
+    color: #fff;
+    text-shadow: 3px 3px #000;
+}
+
+.card {
+    margin: 10px;
+    max-width: 600px;
+    display: inline-table;
+    text-align: center;
+}
+
+.card-body {
+    padding: 0.5rem;
+}
+
+footer {
+    background-color: #333333;
+}
+
+.form-check b{
+    width: 120px;
+    max-width: 120px;
+    display: inline-block;
+}
+
+.form-check-label {
+    width: 105px;
+    max-width: 105px;
+    display: inline-block;
+}
+
+#img_preview{
+    width: 100px;
+    height: 100px;
+    max-width: 100px;
+    max-height: 100px;
+    display: inline-block;
+    margin-right: 50px;
+}
+.btn-outline-light:hover{
+    color: #000000;
+}

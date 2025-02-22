@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="content-language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Pixels - Art</title>
+    <meta name="description" content="photo2pixel is an online image to pixel style(8-bit) tool that can generate beautiful pixel art paintings within seconds. You can try different combinations of style options to achieve the best result.">
+    <meta name="keywords" content="photo to pixel, pixelation, pixelization, 8-bit converter">
+    <link rel="canonical" href="https://photo2pixel.co"/>
+    <link rel="icon" type="image/png" href="images/pixels.png" sizes="64x64"/>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet"/>
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <!-- Background image -->
+    <div class="p-5 text-center bg-image" style="background-image: url('images/1.jpg');height: 550px;">
+        <div class="mask" style="background-color: rgba(0, 0, 0, 0.15);">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <div class="text-white animate__animated animate__fadeIn">
+                    <h1 class="mb-3">Photo to Pixel Icon</h1>
+                    <h4 class="mb-3">Create masterpiece pixel icon from photo online.</h4>
+                    <a class="btn btn-outline-light btn-lg animate__animated animate__bounceIn" href="#selection-box" role="button">Get Started</a>
+                    <a class="btn btn-outline-light btn-lg animate__animated animate__bounceIn" href="#gallery-box" role="button">Gallery</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Background image -->
+</header>
+<div id="selection-box" class="container animate__animated animate__fadeInUp">
+    <h2>Select Photo from Local Disk</h2>
+    <label for="input1" class="custom-file-upload">
+        <input id="input1" type="file" onchange="infer()">
+        <img id="img_preview" src="images/1.jpg">
+        <i class="fa-solid fa-upload"></i>
+        Click to Select Photo
+    </label>
+    <canvas id="canvas1" style="display: none"></canvas>
+    <canvas id="canvas2" style="display: none"></canvas>
+    <h2>Get Result and Share</h2>
+    <a id="download_btn" class="btn btn-lg btn-outline-black animate__animated animate__fadeIn" href="images/pixels.png" download="photo2pixel_download.png">
+        <i class="fa-solid fa-download"></i>
+        Download Pixel Icon
+    </a>
+    <br>
+    <img id="img1" src='images/pixels.png' class="animate__animated animate__fadeIn">
+</div>
+<hr class="sep_line">
+<div id="faq-box" class="container animate__animated animate__fadeInUp">
+    <h2 class="text-center">FAQ</h2>
+    <h3>What is “photo2pixel”?</h3>
+    <p>photo2pixel is an online image to pixel style(8-bit) tool that can generate beautiful pixel art paintings within seconds. You can try different combinations of style options to achieve the best result.</p>
+    <p>Why photo2pixel’s result is better than its alternatives?</p>
+</div>
+
+<div id="gallery-box" class="animate__animated animate__fadeInUp">
+    <h2>Gallery</h2>
+    <div class="card">
+        <img src="images/2.png" class="card-img-top" alt="The Middle-Ages Sword 8bit pixel style">
+        <div class="card-body">
+            <h5 class="card-title">Design Art</h5>
+        </div>
+    </div>
+    <div class="card">
+        <img src="images/4.png" class="card-img-top" alt="City Street with Light 8bit pixel style">
+        <div class="card-body">
+            <h5 class="card-title">Design Art</h5>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center text-white">
+    <!-- Grid container -->
+    <div class="container-fluid p-4 pb-0" style="background-color: rgba(0, 0, 0, 0.3);">
+        <!-- Section: CTA -->
+        <section class="align-items-center">
+            <a href="index.html">
+                <button class="btn btn-outline-light" type="button">Gunakan Imajinasi Untuk Membuka pixels M=icon Menjadi Lebih Baik</button>
+            </a>
+        </section>
+        <!-- Section: Roy -->
+    </div>
+    <!-- Grid container -->
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2024 Copyright:
+        <a class="text-white" href="/">Dwi Bakti N DeV</a>
+    </div>
+    <!-- Copyright -->
+     <script>
+        function infer() {
+            const input = document.getElementById('input1');
+            const imgPreview = document.getElementById('img_preview');
+            const canvas1 = document.getElementById('canvas1');
+            const canvas2 = document.getElementById('canvas2');
+            const img1 = document.getElementById('img1');
+            const downloadBtn = document.getElementById('download_btn');
+        
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+        
+                reader.onload = function (e) {
+                    imgPreview.src = e.target.result;
+        
+                    imgPreview.onload = function () {
+                        const ctx1 = canvas1.getContext('2d');
+                        const ctx2 = canvas2.getContext('2d');
+        
+                        // Ukuran maksimum untuk pixel art (misalnya 128 piksel)
+                        const maxPixelArtSize = 128;
+        
+                        // Hitung rasio aspek gambar asli
+                        const aspectRatio = imgPreview.width / imgPreview.height;
+        
+                        // Tentukan ukuran pixel art berdasarkan rasio aspek
+                        let pixelArtWidth, pixelArtHeight;
+                        if (imgPreview.width > imgPreview.height) {
+                            pixelArtWidth = maxPixelArtSize;
+                            pixelArtHeight = Math.round(maxPixelArtSize / aspectRatio);
+                        } else {
+                            pixelArtHeight = maxPixelArtSize;
+                            pixelArtWidth = Math.round(maxPixelArtSize * aspectRatio);
+                        }
+        
+                        // Set canvas1 ke ukuran asli gambar
+                        canvas1.width = imgPreview.width;
+                        canvas1.height = imgPreview.height;
+        
+                        // Gambar gambar asli ke canvas1
+                        ctx1.drawImage(imgPreview, 0, 0, imgPreview.width, imgPreview.height);
+        
+                        // Set canvas2 ke ukuran pixel art yang disesuaikan
+                        canvas2.width = pixelArtWidth;
+                        canvas2.height = pixelArtHeight;
+        
+                        // Gambar ulang gambar ke canvas2 dengan ukuran yang disesuaikan
+                        ctx2.drawImage(canvas1, 0, 0, imgPreview.width, imgPreview.height, 0, 0, pixelArtWidth, pixelArtHeight);
+        
+                        // Ambil data gambar dari canvas2
+                        const imageData = ctx2.getImageData(0, 0, pixelArtWidth, pixelArtHeight);
+                        const data = imageData.data;
+        
+                        // Proses quantization untuk mengurangi jumlah warna
+                        const colorDepth = 32; // Sesuaikan untuk mengontrol jumlah warna
+                        for (let i = 0; i < data.length; i += 4) {
+                            const r = data[i];
+                            const g = data[i + 1];
+                            const b = data[i + 2];
+        
+                            // Kurangi jumlah warna dengan quantization
+                            data[i] = Math.round(r / colorDepth) * colorDepth;
+                            data[i + 1] = Math.round(g / colorDepth) * colorDepth;
+                            data[i + 2] = Math.round(b / colorDepth) * colorDepth;
+                        }
+        
+                        // Masukkan data gambar yang sudah diubah kembali ke canvas2
+                        ctx2.putImageData(imageData, 0, 0);
+        
+                        // Tampilkan hasil pixel art
+                        img1.src = canvas2.toDataURL();
+        
+                        // Aktifkan tombol download
+                        downloadBtn.href = canvas2.toDataURL();
+                        downloadBtn.download = 'photo2pixel_download.png';
+                    };
+                };
+        
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+     </script>
+</footer>
+</body>
+</html>
