@@ -5,7 +5,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron .",
-    "build": "electron-builder"
+    "build": "[my-framework] build --output public"
+  },
+  "dependencies": {
+    "source": "/feedback/general",
+    "destination": "/api/feedback/general"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +18,14 @@
   "devDependencies": {
     "electron": "^34.2.0",
     "electron-builder": "^25.1.8"
-  }
-}
+  },
+    "functions": {
+      "pages/api/users/**/*.js": {
+        "maxDuration": 30
+      }
+    },
+      "engines": {
+        "pnpm": "^7.5.1"
+      },
+      "packageManager": "pnpm@7.5.1"
+    }
