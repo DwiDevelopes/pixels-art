@@ -10,7 +10,7 @@ Pixel art adalah bentuk seni digital yang dibuat dengan menyusun titik-titik kec
 
 ## Contoh Pixel Art
 
-![Contoh Pixel Art: Karakter Retro](https://upload.wikimedia.org/wikipedia/commons/2/2c/Pixel_art_example.png)
+<img src ="Screenshot 2025-05-13 220337.png">
 
 *Gambar di atas menunjukkan karakter bergaya pixel art dengan detail sederhana namun tetap menarik.*
 
